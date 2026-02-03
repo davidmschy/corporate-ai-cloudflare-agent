@@ -1,0 +1,29 @@
+name = "corporate-ai-david"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+
+[env.production]
+vars = { 
+  ENVIRONMENT = "production",
+  TELEGRAM_BOT_TOKEN = "8527939205:AAFWI1EtRA2IAyYnsCnvnFeln0-G4xSvBxY"
+}
+
+# D1 Database
+[[env.production.d1_databases]]
+binding = "DB"
+database_name = "corporate-ai-david"
+database_id = "PLACEHOLDER"
+
+# R2 Storage
+[[env.production.r2_buckets]]
+binding = "STORAGE"
+bucket_name = "corporate-ai-david"
+
+# KV for caching
+[[env.production.kv_namespaces]]
+binding = "CACHE"
+id = "PLACEHOLDER"
+
+# Scheduled heartbeat
+[triggers]
+crons = ["*/15 * * * *"]
